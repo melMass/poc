@@ -23,6 +23,9 @@ fn main() {
         .start()
         .unwrap();
 
+    slint::platform::set_platform(Box::new(i_slint_backend_winit::Backend::new().unwrap()))
+        .unwrap();
+
     // workaround from https://github.com/slint-ui/slint/issues/1499#issuecomment-1794517946
     i_slint_backend_selector::with_platform(|b| {
         b.set_event_loop_quit_on_last_window_closed(false);

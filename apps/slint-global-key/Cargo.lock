@@ -3557,6 +3557,7 @@ dependencies = [
  "flexi_logger",
  "global-hotkey",
  "i-slint-backend-selector",
+ "i-slint-backend-winit",
  "log",
  "slint",
  "slint-build",
