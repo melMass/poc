@@ -1,0 +1,15 @@
+export component App inherits Window {
+    in-out property <bool> small: true;
+    no-frame: true;
+    background: rgb(30,30,30);
+    z: 9999;
+
+    width: 600px;
+    height: 400px;
+    
+    Rectangle {
+        Text {
+            text: "\{root.width/1px}x\{root.height/1px}";
+        }
+    }
+}
