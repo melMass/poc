@@ -15,9 +15,15 @@ i:
 # Set nu as the shell and set the table mode to light
 set shell := ['nu', '-m', 'light', '-c']
 
+shebang := if os() == 'windows' {
+	'nu'
+} else {
+	'/usr/bin/env nu'
+}
+
 
 run-poc:
-    #!/usr/bin/env nu
+    #!{{shebang}}
     let options = ("{{pocs}}" | lines)
     let choice = ($options | input list $"(ansi yellow_italic) Which POC to run?(ansi reset)")
     if ($choice | is-empty) {
