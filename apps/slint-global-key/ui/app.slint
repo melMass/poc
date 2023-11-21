@@ -1,15 +1,30 @@
+import { Button } from "std-widgets.slint";
 export component App inherits Window {
-    in-out property <bool> small: true;
     no-frame: true;
+    always-on-top: true;
     background: rgb(30,30,30);
     z: 9999;
 
     width: 600px;
     height: 400px;
-    
+
+    callback close();
+
     Rectangle {
-        Text {
-            text: "\{root.width/1px}x\{root.height/1px}";
+        VerticalLayout {
+            Text {
+                text: "Main Viewport\n\{root.width/1px}x\{root.height/1px}";
+                vertical-alignment: center;
+                horizontal-alignment: center;
+
+            }
+            Button {
+                text: "Fold window";
+                height: 32px;
+                clicked => {
+                    root.close()
+                }
+            }
         }
     }
 }

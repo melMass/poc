@@ -23,5 +23,9 @@ run-poc:
     if ($choice | is-empty) {
        print $"(ansi red)aborting...(ansi reset)"
     } else {
-        cd $"apps/($choice)"; cargo run -r
+        $env.SLINT_DEBUG_PERFORMANCE = "console,refresh_full_speed"
+        $env.SLINT_BACKEND = "winit"
+        $env.RUST_LOG = "debug"
+        cd $"apps/($choice)"
+        cargo run -r
     }
